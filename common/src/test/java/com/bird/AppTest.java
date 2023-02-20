@@ -1,12 +1,14 @@
 package com.bird;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class AppTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class AppTest {
     @Test
-    public void alwaysPositiveAppTest() {
-        Assert.assertTrue(true);
+    void alwaysPositiveAppTest() {
+
+        assertTrue(true);
     }
 
 }

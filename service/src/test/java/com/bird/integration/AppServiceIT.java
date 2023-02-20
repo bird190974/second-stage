@@ -1,11 +1,12 @@
 package com.bird.integration;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class AppServiceIT {
+import static org.junit.jupiter.api.Assertions.*;
+
+class AppServiceIT {
     @Test
-    public void alwaysPositiveIntegrationAppServiceTest(){
-        Assert.assertTrue(true);
+    void alwaysPositiveIntegrationAppServiceTest() {
+        assertTrue(true);
     }
 }

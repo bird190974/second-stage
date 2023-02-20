@@ -1,11 +1,12 @@
 package com.bird;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class AppServiceTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class AppServiceTest {
     @Test
-    public void alwaysPositiveAppServiceTest(){
-        Assert.assertTrue(true);
+    void alwaysPositiveAppServiceTest() {
+        assertTrue(true);
     }
 }
