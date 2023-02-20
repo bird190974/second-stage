@@ -4,20 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Merge 01-homework-maven to master">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Gearbox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/util/HibernateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/uml.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/bird/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/bird/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/test/java/com/bird/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/test/java/com/bird/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/test/java/com/bird/integration/AppIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/test/java/com/bird/integration/AppIT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/AppServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/AppServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/AppServiceIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/AppServiceIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bird/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +31,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -38,6 +44,22 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="093cbd8c-3142-484a-9d2d-e9ae1c456b2c" />
+        <option name="url" value="https://github.com/bird190974/second-stage.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,27 +77,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.27586207&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.27586207",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.bird.entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bird1\second-stage2\service\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -84,6 +117,26 @@
     <option name="myCommands">
       <command value="mvn wrapper:wrapper -Dmaven=3.8.7" />
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AppService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bird.AppService" />
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bird.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AppService" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675666351167</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge 01-homework-maven to master">
+      <created>1676877824354</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676877824354</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,7 +183,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="02-homework-hibernate-1" />
                       </list>
                     </value>
                   </entry>
@@ -137,7 +197,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests." />
+    <MESSAGE value="Merge 01-homework-maven to master" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge 01-homework-maven to master" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
