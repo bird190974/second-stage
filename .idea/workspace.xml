@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Add entity, create DB (script and uml add to resources directory)">
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/CarTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/ClientTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/OrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/UserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" afterDir="false" />
-    </list>
+    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +210,7 @@
       <workItem from="1676629557292" duration="5628000" />
       <workItem from="1677484888301" duration="24000" />
       <workItem from="1677485029642" duration="4000" />
-      <workItem from="1677485474453" duration="25812000" />
+      <workItem from="1677485474453" duration="26276000" />
     </task>
     <task id="LOCAL-00001" summary="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests.">
       <created>1675666351167</created>
@@ -250,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676896247732</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps.">
+      <created>1677513294120</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677513294120</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +273,8 @@
     <MESSAGE value="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests." />
     <MESSAGE value="Merge 01-homework-maven to master" />
     <MESSAGE value="Add entity, create DB (script and uml add to resources directory)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add entity, create DB (script and uml add to resources directory)" />
+    <MESSAGE value="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
