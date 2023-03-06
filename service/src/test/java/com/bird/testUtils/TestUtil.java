@@ -35,14 +35,14 @@ public class TestUtil {
                 .lastName("Lebedzeu")
                 .email("data@gmail.com")
                 .password("1234")
-                .userRole(Role.USER)
+                .role(Role.USER)
                 .build();
     }
 
     public static Client getClient(User user){
         return Client.builder()
                 .user(user)
-                .passportId("12N34")
+                .passportNo("12N34")
                 .driverLicenceNo("1234BY")
                 .driverLicenceExpiration(LocalDate.of(2023,12,31))
                 .creditAmount(BigDecimal.valueOf(100.00))

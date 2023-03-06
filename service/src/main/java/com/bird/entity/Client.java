@@ -3,6 +3,7 @@ package com.bird.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -18,6 +19,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = "user")
 @ToString(exclude = "user")
 @Builder
 @Entity
@@ -29,7 +31,7 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-    private String passportId;
+    private String passportNo;
     private String driverLicenceNo;
     private LocalDate driverLicenceExpiration;
     private BigDecimal creditAmount;

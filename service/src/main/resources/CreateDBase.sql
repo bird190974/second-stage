@@ -17,7 +17,7 @@ CREATE TABLE car
     gearbox VARCHAR(32) NOT NULL ,
     color VARCHAR(32),
     seats_quantity INT NOT NULL ,
-    cost_per_day NUMERIC(8, 2),
+    cost_per_day NUMERIC(8, 2) NOT NULL ,
     image VARCHAR(256)
 );
 -- DROP TABLE car;
@@ -45,7 +45,7 @@ CREATE TABLE users
     last_name VARCHAR(32) NOT NULL ,
     email VARCHAR(128) UNIQUE NOT NULL ,
     password VARCHAR(32) NOT NULL ,
-    user_role VARCHAR(16)
+    role VARCHAR(16) NOT NULL
 );
 -- DROP TABLE users;
 
@@ -55,7 +55,7 @@ CREATE TABLE client
 (
     id SERIAL PRIMARY KEY ,
     user_id INT REFERENCES users(id) ON DELETE CASCADE ,
-    passport_id VARCHAR(128) UNIQUE ,
+    passport_no VARCHAR(128) UNIQUE ,
     driver_licence_no VARCHAR(128) UNIQUE ,
     driver_licence_expiration DATE NOT NULL ,
     credit_amount NUMERIC(8, 2) NOT NULL ,
@@ -69,9 +69,9 @@ CREATE TABLE orders
     id BIGSERIAL PRIMARY KEY ,
     user_id INT REFERENCES users(id),
     car_id INT REFERENCES car(id),
-    begin_time TIMESTAMP,
-    end_time TIMESTAMP,
-    status VARCHAR(16),
+    begin_time TIMESTAMP NOT NULL ,
+    end_time TIMESTAMP NOT NULL ,
+    status VARCHAR(16) NOT NULL ,
     message VARCHAR(128)
 );
 

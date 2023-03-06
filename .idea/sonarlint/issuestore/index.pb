@@ -16,4 +16,11 @@ Z
 V
 &common/src/main/java/com/bird/App.java,b\8\b8ee8ff857dbaeb1b45063e27a7f1d18b737c622
 b
-2service/src/test/java/com/bird/AppServiceTest.java,0\f\0f4c474130917698011f21075303b827189af302
+2service/src/main/java/com/bird/entity/Gearbox.java,c\5\c5fafec8463e78e30ef9b7c1d2df193f8d288d50
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+g
+7service/src/main/java/com/bird/util/HibernateUtils.java,9\e\9eb1a99b479741cc4f9bbca382c49c8ff23ee074

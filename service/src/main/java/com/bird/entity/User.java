@@ -3,6 +3,7 @@ package com.bird.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -24,6 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"client", "orders"})
+@EqualsAndHashCode(exclude = {"client", "orders"})
 @Builder
 @Entity
 @Table(name = "users")
@@ -36,7 +38,7 @@ public class User {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role userRole;
+    private Role role;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Client client;
     @Builder.Default

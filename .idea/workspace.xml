@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
+    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps.">
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/TestBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestDataCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/AppServiceIT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/CarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/CarIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/ClientIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/OrderIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/UserIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +95,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.27586207",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -104,8 +123,8 @@
       <command value="mvn wrapper:wrapper -Dmaven=3.8.7" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderTest.deleteOrder">
-    <configuration name="ClientTest.deleteClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserIT">
+    <configuration name="OrderIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
@@ -114,14 +133,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.ClientTest" />
-      <option name="METHOD_NAME" value="deleteClient" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.OrderIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bird.integration.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserIT.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bird.integration.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
+      <option name="METHOD_NAME" value="getUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientTest.deleteClientViaDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserIT.saveUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
@@ -130,14 +179,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.ClientTest" />
-      <option name="METHOD_NAME" value="deleteClientViaDeleteUser" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
+      <option name="METHOD_NAME" value="saveUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderTest.deleteOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserIT.updateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
@@ -146,40 +195,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.OrderTest" />
-      <option name="METHOD_NAME" value="deleteOrder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderTest.saveAndGetOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bird.integration.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.OrderTest" />
-      <option name="METHOD_NAME" value="saveAndGetOrder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderTest.updateOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bird.integration.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.OrderTest" />
-      <option name="METHOD_NAME" value="updateOrder" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
+      <option name="METHOD_NAME" value="updateUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrderTest.deleteOrder" />
-        <item itemvalue="JUnit.OrderTest.updateOrder" />
-        <item itemvalue="JUnit.OrderTest.saveAndGetOrder" />
-        <item itemvalue="JUnit.ClientTest.deleteClient" />
-        <item itemvalue="JUnit.ClientTest.deleteClientViaDeleteUser" />
+        <item itemvalue="JUnit.UserIT" />
+        <item itemvalue="JUnit.UserIT.updateUser" />
+        <item itemvalue="JUnit.UserIT.getUser" />
+        <item itemvalue="JUnit.UserIT.saveUser" />
+        <item itemvalue="JUnit.OrderIT" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +227,11 @@
       <workItem from="1676629557292" duration="5628000" />
       <workItem from="1677484888301" duration="24000" />
       <workItem from="1677485029642" duration="4000" />
-      <workItem from="1677485474453" duration="26276000" />
+      <workItem from="1677485474453" duration="26891000" />
+      <workItem from="1677514075652" duration="42000" />
+      <workItem from="1677517272033" duration="805000" />
+      <workItem from="1678090246643" duration="624000" />
+      <workItem from="1678090924364" duration="10813000" />
     </task>
     <task id="LOCAL-00001" summary="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests.">
       <created>1675666351167</created>
@@ -240,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677513294120</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps.">
+      <created>1677513715975</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677513715975</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

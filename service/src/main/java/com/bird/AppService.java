@@ -11,7 +11,7 @@ public class AppService {
     public static void main(String[] args) {
         System.out.println("Hello world! This is main method from service module. ");
         try (SessionFactory sessionFactory = HibernateUtils.buildSessionFactory();
-             Session session = sessionFactory.openSession();) {
+             Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             Car car = Car.builder()
                     .regSign("aaa2245")
@@ -27,7 +27,7 @@ public class AppService {
                     .lastName("Lebedzeu")
                     .email("data7479@mail.ru")
                     .password("")
-                    .userRole(Role.USER)
+                    .role(Role.USER)
                     .build();
 
             session.saveOrUpdate(user);
