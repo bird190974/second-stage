@@ -4,25 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps.">
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/TestBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestDataCreate.java" afterDir="false" />
+    <list default="true" id="87fe3155-2189-401d-9906-c2244d3aa425" name="Changes" comment="Submit last code review (2023/02/27).">
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/dao/CarBookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/dao/QPredicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/dto/CarFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/dao/CarBookDaoIT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/AppService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/OrderStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/resources/CreateDBase.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/AppServiceIT.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/CarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/CarIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/ClientIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/OrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/OrderIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/entity/UserIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/testUtils/TestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/bird/util/HibernateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/bird/util/HibernateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/AppServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/com/bird/integration/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/bird1/second-stage2/service/src/test/resources",
+    "last_opened_file_path": "C:/Users/bird1/second-stage2/service/src/test/java/com/bird/integration",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,12 +106,15 @@
       <recent name="com.bird.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bird1\second-stage2\service\src\test\java\com\bird\integration" />
       <recent name="C:\Users\bird1\second-stage2\service\src\test\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bird1\second-stage2\service\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.bird.dao" />
+      <recent name="com.bird" />
       <recent name="" />
     </key>
   </component>
@@ -123,18 +123,50 @@
       <command value="mvn wrapper:wrapper -Dmaven=3.8.7" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserIT">
-    <configuration name="OrderIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CarBookDaoIT.findAllByFilterCriteria">
+    <configuration name="CarBookDaoIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bird.integration.entity.*" />
+          <option name="PATTERN" value="com.bird.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.OrderIT" />
+      <option name="PACKAGE_NAME" value="com.bird.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.dao.CarBookDaoIT" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarBookDaoIT.findAllByFilterCriteria" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bird.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bird.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.dao.CarBookDaoIT" />
+      <option name="METHOD_NAME" value="findAllByFilterCriteria" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarBookDaoIT.findAllByFilterQueryDsl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bird.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bird.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.bird.dao.CarBookDaoIT" />
+      <option name="METHOD_NAME" value="findAllByFilterQueryDsl" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,38 +182,6 @@
       <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
       <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserIT.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bird.integration.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
-      <option name="METHOD_NAME" value="getUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserIT.saveUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bird.integration.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bird.integration.entity" />
-      <option name="MAIN_CLASS_NAME" value="com.bird.integration.entity.UserIT" />
-      <option name="METHOD_NAME" value="saveUser" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarBookDaoIT.findAllByFilterCriteria" />
+        <item itemvalue="JUnit.CarBookDaoIT.findAllByFilterQueryDsl" />
+        <item itemvalue="JUnit.CarBookDaoIT" />
         <item itemvalue="JUnit.UserIT" />
         <item itemvalue="JUnit.UserIT.updateUser" />
-        <item itemvalue="JUnit.UserIT.getUser" />
-        <item itemvalue="JUnit.UserIT.saveUser" />
-        <item itemvalue="JUnit.OrderIT" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +231,7 @@
       <workItem from="1677514075652" duration="42000" />
       <workItem from="1677517272033" duration="805000" />
       <workItem from="1678090246643" duration="624000" />
-      <workItem from="1678090924364" duration="10813000" />
+      <workItem from="1678090924364" duration="22615000" />
     </task>
     <task id="LOCAL-00001" summary="Add pom files for service and common modules with dependencies and plugins.&#10;Add dummy tests and IT tests.">
       <created>1675666351167</created>
@@ -268,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677513715975</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Submit last code review (2023/02/27).">
+      <created>1678106224754</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678106224754</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +309,8 @@
     <MESSAGE value="Merge 01-homework-maven to master" />
     <MESSAGE value="Add entity, create DB (script and uml add to resources directory)" />
     <MESSAGE value="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Submit last code review.&#10;Add references between entities.&#10;Add tests 'CRUD' for entities with H2 database helps." />
+    <MESSAGE value="Submit last code review (2023/02/27)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Submit last code review (2023/02/27)." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

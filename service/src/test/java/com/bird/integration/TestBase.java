@@ -1,5 +1,6 @@
 package com.bird.integration;
 
+import com.bird.testUtils.TestDataCreate;
 import com.bird.util.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +16,7 @@ public abstract class TestBase {
     @BeforeAll
     static void init() {
         sessionFactory = HibernateUtils.buildSessionFactory();
-//        TestDataImporter.importData(sessionFactory);
+        TestDataCreate.createData(sessionFactory);
     }
 
     @AfterAll

@@ -37,7 +37,7 @@ public class Client {
     private BigDecimal creditAmount;
     private int clientRating;
 
-    public void setUser(User user){
+    public void setUser(User user) {
         user.setClient(this);
         this.user = user;
     }
