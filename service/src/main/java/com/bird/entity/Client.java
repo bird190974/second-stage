@@ -23,7 +23,7 @@ import java.time.LocalDate;
 @ToString(exclude = "user")
 @Builder
 @Entity
-public class Client {
+public class Client implements BaseEntity<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,7 +35,7 @@ public class Client {
     private String driverLicenceNo;
     private LocalDate driverLicenceExpiration;
     private BigDecimal creditAmount;
-    private int clientRating;
+    private Integer clientRating;
 
     public void setUser(User user) {
         user.setClient(this);

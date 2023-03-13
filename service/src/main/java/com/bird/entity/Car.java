@@ -27,7 +27,7 @@ import java.util.List;
 @ToString(exclude = "orders")
 @Builder
 @Entity
-public class Car {
+public class Car implements BaseEntity<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -39,7 +39,7 @@ public class Car {
     @Enumerated(EnumType.STRING)
     private Gearbox gearbox;
     private String color;
-    private int seatsQuantity;
+    private Integer seatsQuantity;
     private BigDecimal costPerDay;
     private String image;
     @Builder.Default

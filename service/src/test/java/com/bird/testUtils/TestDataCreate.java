@@ -33,10 +33,10 @@ public class TestDataCreate {
         User sveta = saveUser(session, "Sveta", "Svetikova", "sveta@gmail.com", "3333", Role.USER);
 
         Client ivanIvanov = saveClient(session, ivan, "123I456", "I123456", LocalDate.of(2023, 12, 31), BigDecimal.valueOf(120.45), 5);
-        Client petrPetov = saveClient(session, petr, "123P456", "P123456", LocalDate.of(2023, 6, 30), BigDecimal.valueOf(255.55), 10);
+        Client petrPetov = saveClient(session, petr, "123P456", "P123456", LocalDate.of(2023, 6, 30), BigDecimal.valueOf(255.55), 5);
         Client svetaSvetikova = saveClient(session, sveta, "123S456", "S123456", LocalDate.of(2023, 1, 10), BigDecimal.valueOf(111.11), 1);
 
-        Order order1 = saveOrder(session, ivan, audi, LocalDateTime.now(), LocalDateTime.now().plusDays(10), OrderStatus.ACCEPTED, "Nice to see you, " + ivan.getFirstName());
+        Order order1 = saveOrder(session, ivan, skoda, LocalDateTime.now(), LocalDateTime.now().plusDays(10), OrderStatus.ACCEPTED, "Nice to see you, " + ivan.getFirstName());
         Order order2 = saveOrder(session, petr, tesla, LocalDateTime.now(), LocalDateTime.now().plusDays(5), OrderStatus.IN_PROGRESS, "Please wait, " + petr.getFirstName());
         Order order3 = saveOrder(session, sveta, skoda, LocalDateTime.now(), LocalDateTime.now().plusDays(20), OrderStatus.DENIED, "Sorry, " + sveta.getFirstName());
     }
