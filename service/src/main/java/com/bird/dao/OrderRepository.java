@@ -3,6 +3,7 @@ package com.bird.dao;
 import com.bird.dto.OrderFilter;
 import com.bird.entity.Order;
 import com.querydsl.jpa.impl.JPAQuery;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -11,6 +12,7 @@ import static com.bird.entity.QCar.car;
 import static com.bird.entity.QOrder.order;
 import static com.bird.entity.QUser.user;
 
+@Repository
 public class OrderRepository extends BaseRepository<Long, Order> {
 
     public OrderRepository(EntityManager entityManager) {

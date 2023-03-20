@@ -1,38 +1,42 @@
 package com.bird.integration;
 
+import com.bird.config.CarBookConfiguration;
 import com.bird.testUtils.TestDataCreate;
-import com.bird.util.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import javax.persistence.EntityManager;
 
 public abstract class TestBase {
-    private static SessionFactory sessionFactory;
-    protected Session session;
+
+    protected static AnnotationConfigApplicationContext context;
+    protected static Session session;
 
     @BeforeAll
     static void init() {
-        sessionFactory = HibernateUtils.buildSessionFactory();
+        context = new AnnotationConfigApplicationContext((CarBookConfiguration.class));
+        SessionFactory sessionFactory = context.getBean(SessionFactory.class);
+        session = (Session) context.getBean(EntityManager.class);
         TestDataCreate.createData(sessionFactory);
     }
 
     @AfterAll
     static void close() {
-        sessionFactory.close();
+        context.close();
     }
 
     @BeforeEach
-    void sessionInit() {
-        session = sessionFactory.openSession();
+    void getSession() {
         session.beginTransaction();
     }
 
     @AfterEach
-    void setSessionRollbackAndClose() {
+    void setSessionRollback() {
         session.getTransaction().rollback();
-        session.close();
     }
 }

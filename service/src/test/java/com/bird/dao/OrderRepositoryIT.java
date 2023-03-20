@@ -8,63 +8,58 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class OrderRepositoryIT extends TestBase {
+
+    private final OrderRepository orderRepository = context.getBean(OrderRepository.class);
+
     @Test
     void save() {
-
         var order = TestUtil.getOrder(TestUtil.getUser(), TestUtil.getCar());
-        var orderRepository = new OrderRepository(session);
 
         var actualOrder = orderRepository.save(order);
 
-        assertThat(actualOrder).isNotNull();
+        assertThat(actualOrder.getId()).isNotNull();
     }
 
     @Test
     void update() {
-        var orderRepository = new OrderRepository(session);
-
         var expectedOrder = orderRepository.findById(1L).get();
         expectedOrder.setStatus(OrderStatus.DENIED);
         orderRepository.update(expectedOrder);
-
-        var actualOrder = orderRepository.findById(1L);
-
-        assertThat(actualOrder).isNotNull();
-        assertThat(actualOrder.get().getStatus()).isEqualTo(OrderStatus.DENIED);
-    }
-
-    @Test
-    void deleteExistingOrder() {
-        var orderRepository = new OrderRepository(session);
-
-        orderRepository.delete(1L);
-
-        assertThat(orderRepository.findById(1L)).isEmpty();
-    }
-    @Test
-    void deleteNotExistingOrder() {
-        var orderRepository = new OrderRepository(session);
-
-        assertThrows(IllegalArgumentException.class, () -> orderRepository.delete(100500100L));
-    }
-    @Test
-    void findById() {
-        var orderRepository = new OrderRepository(session);
+        session.clear();
 
         var actualOrder = orderRepository.findById(1L);
 
         assertThat(actualOrder).isPresent();
-        assertThat(actualOrder.get().getUser().getFirstName()).isEqualTo("Ivan");
+        assertThat(actualOrder.get().getStatus()).isEqualTo(OrderStatus.DENIED);
+    }
+
+    @Test
+    void delete() {
+        var order = TestUtil.getOrder(TestUtil.getUser(), TestUtil.getCar());
+
+        orderRepository.save(order);
+        orderRepository.delete(order);
+        session.clear();
+
+        var maybeOrder = orderRepository.findById(order.getId());
+        assertThat(maybeOrder).isEmpty();
+    }
+
+    @Test
+    void findById() {
+        var actualOrder = orderRepository.findById(1L);
+        session.clear();
+
+        assertThat(actualOrder).isPresent();
+        assertThat(actualOrder.get().getStatus()).isEqualTo(OrderStatus.ACCEPTED);
     }
 
     @Test
     void findAll() {
-        var orderRepository = new OrderRepository(session);
-
         var actualOrder = orderRepository.findAll();
+        session.clear();
 
         assertNotNull(actualOrder);
         assertThat(actualOrder).hasSize(3);
@@ -72,11 +67,10 @@ class OrderRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithOneParam() {
-        var orderRepository = new OrderRepository(session);
-
         var orderFilter = OrderFilter.builder()
                 .status(OrderStatus.DENIED)
                 .build();
+
         var orders = orderRepository.findByFilter(orderFilter);
 
         assertThat(orders).hasSize(1);
@@ -86,15 +80,11 @@ class OrderRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithNoParams() {
-        var orderRepository = new OrderRepository(session);
-
         var orderFilter = OrderFilter.builder()
                 .build();
+
         var orders = orderRepository.findByFilter(orderFilter);
 
         assertThat(orders).hasSize(orderRepository.findAll().size());
-
     }
-
-
 }

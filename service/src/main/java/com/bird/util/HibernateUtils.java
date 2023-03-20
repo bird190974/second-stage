@@ -10,7 +10,6 @@ public class HibernateUtils {
     public static SessionFactory buildSessionFactory() {
         Configuration configuration = new Configuration();
         configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
-
         configuration.configure();
         return configuration.buildSessionFactory();
     }

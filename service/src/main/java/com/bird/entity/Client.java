@@ -23,7 +23,7 @@ import java.time.LocalDate;
 @ToString(exclude = "user")
 @Builder
 @Entity
-public class Client implements BaseEntity<Integer>{
+public class Client implements BaseEntity<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

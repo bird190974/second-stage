@@ -21,14 +21,15 @@ public abstract class BaseRepository<T extends Serializable, E extends BaseEntit
     }
 
     @Override
-    public void delete(T id) {
-        entityManager.remove(entityManager.find(clazz, id));
+    public void delete(E entity) {
+        entityManager.remove(entity);
         entityManager.flush();
     }
 
     @Override
     public void update(E entity) {
         entityManager.merge(entity);
+        entityManager.flush();
     }
 
     @Override

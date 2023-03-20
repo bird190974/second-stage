@@ -10,7 +10,7 @@ public interface Repository<T extends Serializable, E extends BaseEntity<T>> {
 
     E save(E entity);
 
-    void delete(T id);
+    void delete(E entity);
 
     void update(E entity);
 

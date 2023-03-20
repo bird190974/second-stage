@@ -8,48 +8,49 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UserRepositoryIT extends TestBase {
 
+    private final UserRepository userRepository = context.getBean(UserRepository.class);
 
     @Test
     void save() {
-
         var user = TestUtil.getUser();
-        var userRepository = new UserRepository(session);
 
         var actualUser = userRepository.save(user);
 
-        assertThat(actualUser).isNotNull();
+        assertThat(actualUser.getId()).isNotNull();
     }
 
     @Test
     void update() {
-        var userRepository = new UserRepository(session);
-
         var expectedUser = userRepository.findById(1).get();
         expectedUser.setRole(Role.ADMIN);
         userRepository.update(expectedUser);
+        session.clear();
 
         var actualUser = userRepository.findById(1);
 
-        assertThat(actualUser).isNotNull();
+        assertThat(actualUser).isPresent();
         assertThat(actualUser.get().getRole()).isEqualTo(Role.ADMIN);
     }
 
-
     @Test
-    void deleteNotExistingUser() {
-        var userRepository = new UserRepository(session);
+    void delete() {
+        var user = TestUtil.getUser();
 
-        assertThrows(IllegalArgumentException.class, () -> userRepository.delete(60000));
+        userRepository.save(user);
+        userRepository.delete(user);
+        session.clear();
+
+        var maybeUser = userRepository.findById(user.getId());
+
+        assertThat(maybeUser).isEmpty();
     }
     @Test
     void findById() {
-        var userRepository = new UserRepository(session);
-
         var actualUser = userRepository.findById(1);
+        session.clear();
 
         assertThat(actualUser).isPresent();
         assertThat(actualUser.get().getFirstName()).isEqualTo("Ivan");
@@ -57,9 +58,8 @@ class UserRepositoryIT extends TestBase {
 
     @Test
     void findAll() {
-        var userRepository = new UserRepository(session);
-
         var actualUser = userRepository.findAll();
+        session.clear();
 
         assertNotNull(actualUser);
         assertThat(actualUser).hasSize(3);
@@ -67,8 +67,6 @@ class UserRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithAllParams() {
-        var userRepository = new UserRepository(session);
-
         var userFilter = UserFilter.builder()
                 .firstName("Ivan")
                 .lastName("Ivanov")
@@ -76,6 +74,7 @@ class UserRepositoryIT extends TestBase {
                 .password("1111")
                 .role(Role.USER)
                 .build();
+
         var users = userRepository.findByFilter(userFilter);
 
         assertThat(users).hasSize(1);
@@ -84,12 +83,11 @@ class UserRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithTwoParams() {
-        var userRepository = new UserRepository(session);
-
         var userFilter = UserFilter.builder()
                 .firstName("Ivan")
                 .lastName("Ivanov")
                 .build();
+
         var users = userRepository.findByFilter(userFilter);
 
 
@@ -99,14 +97,11 @@ class UserRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithNoParams() {
-        var userRepository = new UserRepository(session);
-
         var userFilter = UserFilter.builder()
                 .build();
+
         var users = userRepository.findByFilter(userFilter);
 
         assertThat(users).hasSize(userRepository.findAll().size());
-
     }
-
 }

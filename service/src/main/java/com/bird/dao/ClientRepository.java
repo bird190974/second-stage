@@ -4,12 +4,14 @@ import com.bird.dto.ClientFilter;
 import com.bird.entity.Car;
 import com.bird.entity.Client;
 import com.querydsl.jpa.impl.JPAQuery;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 import static com.bird.entity.QClient.client;
 
+@Repository
 public class ClientRepository extends BaseRepository<Integer, Client> {
 
     public ClientRepository(EntityManager entityManager) {

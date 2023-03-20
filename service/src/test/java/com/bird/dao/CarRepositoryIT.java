@@ -9,53 +9,50 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarRepositoryIT extends TestBase {
+
+    private final CarRepository carRepository = context.getBean(CarRepository.class);
 
     @Test
     void save() {
         var car = TestUtil.getCar();
-        var carRepository = new CarRepository(session);
 
         var actualCar = carRepository.save(car);
 
-        assertThat(actualCar).isNotNull();
+        assertThat(actualCar.getId()).isNotNull();
     }
 
     @Test
     void update() {
-        var carRepository = new CarRepository(session);
-
         var expectedCar = carRepository.findById(1).get();
         expectedCar.setModel("Audi Q7");
         carRepository.update(expectedCar);
+        session.clear();
 
-        var actualCar = carRepository.findById(1);
+        var maybeCar = carRepository.findById(1);
 
-        assertThat(actualCar).isNotNull();
-        assertThat(actualCar.get().getModel()).isEqualTo("Audi Q7");
+        assertThat(maybeCar).isPresent();
+        assertThat(maybeCar.get().getModel()).isEqualTo("Audi Q7");
     }
 
     @Test
-    void deleteExistingCar() {
-        var carRepository = new CarRepository(session);
+    void delete() {
+        var car = TestUtil.getCar();
 
-        carRepository.delete(1);
+        carRepository.save(car);
+        carRepository.delete(car);
+        session.clear();
 
-        assertThat(carRepository.findById(1)).isEmpty();
+        var maybeCar = carRepository.findById(car.getId());
+
+        assertThat(maybeCar).isEmpty();
     }
-    @Test
-    void deleteNotExistingCar() {
-        var carRepository = new CarRepository(session);
 
-        assertThrows(IllegalArgumentException.class, () -> carRepository.delete(60000));
-    }
     @Test
     void findById() {
-        var carRepository = new CarRepository(session);
-
         var actualCar = carRepository.findById(1);
+        session.clear();
 
         assertThat(actualCar).isPresent();
         assertThat(actualCar.get().getModel()).isEqualTo("Audi Q3");
@@ -63,9 +60,8 @@ class CarRepositoryIT extends TestBase {
 
     @Test
     void findAll() {
-        var carRepository = new CarRepository(session);
-
         var actualCars = carRepository.findAll();
+        session.clear();
 
         assertNotNull(actualCars);
         assertThat(actualCars).hasSize(3);
@@ -73,13 +69,12 @@ class CarRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithAllParams() {
-        var carRepository = new CarRepository(session);
-
         var carFilter = CarFilter.builder()
                 .engine(Engine.DIESEL)
                 .gearbox(Gearbox.ROBOT)
                 .seatsQuantity(7)
                 .build();
+
         var cars = carRepository.findByFilter(carFilter);
 
         assertThat(cars).hasSize(1);
@@ -88,8 +83,6 @@ class CarRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithTwoParams() {
-        var carRepository = new CarRepository(session);
-
         var carFilter = CarFilter.builder()
                 .gearbox(Gearbox.AUTOMATIC)
                 .seatsQuantity(5)
@@ -103,15 +96,10 @@ class CarRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithNoParams() {
-        var carRepository = new CarRepository(session);
-
         var carFilter = CarFilter.builder()
                 .build();
         var cars = carRepository.findByFilter(carFilter);
 
         assertThat(cars).hasSize(carRepository.findAll().size());
-
     }
-
-
 }

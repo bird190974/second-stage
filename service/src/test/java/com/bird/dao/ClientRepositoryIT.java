@@ -10,64 +10,58 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ClientRepositoryIT extends TestBase {
 
+    private final ClientRepository clientRepository = context.getBean(ClientRepository.class);
+
     @Test
     void save() {
-
         var client = TestUtil.getClient(TestUtil.getUser());
-        var clientRepository = new ClientRepository(session);
 
         var actualClient = clientRepository.save(client);
 
-        assertThat(actualClient).isNotNull();
+        assertThat(actualClient.getId()).isNotNull();
     }
 
     @Test
     void update() {
-        var clientRepository = new ClientRepository(session);
-
         var expectedClient = clientRepository.findById(1).get();
         expectedClient.setClientRating(0);
         clientRepository.update(expectedClient);
+        session.clear();
 
-        var actualClient = clientRepository.findById(1);
+        var maybeClient = clientRepository.findById(1);
 
-        assertThat(actualClient).isNotNull();
-        assertThat(actualClient.get().getClientRating()).isEqualTo(0);
+        assertThat(maybeClient).isNotNull();
+        assertThat(maybeClient.get().getClientRating()).isEqualTo(0);
     }
 
     @Test
-    void deleteExistingClient() {
-        var clientRepository = new ClientRepository(session);
+    void delete() {
+        var client = TestUtil.getClient(TestUtil.getUser());
+        clientRepository.save(client);
+        clientRepository.delete(client);
+        session.clear();
 
-        clientRepository.delete(1);
+        var maybeClient = clientRepository.findById(client.getId());
 
-        assertThat(clientRepository.findById(1)).isEmpty();
+        assertThat(maybeClient).isEmpty();
     }
-    @Test
-    void deleteNotExistingClient() {
-        var clientRepository = new ClientRepository(session);
 
-        assertThrows(IllegalArgumentException.class, () -> clientRepository.delete(60000));
-    }
     @Test
     void findById() {
-        var clientRepository = new ClientRepository(session);
 
-        var actualClient = clientRepository.findById(1);
+        var maybeClient = clientRepository.findById(1);
 
-        assertThat(actualClient).isPresent();
-        assertThat(actualClient.get().getPassportNo()).isEqualTo("123I456");
+        assertThat(maybeClient).isPresent();
+        assertThat(maybeClient.get().getPassportNo()).isEqualTo("123I456");
     }
 
     @Test
     void findAll() {
-        var clientRepository = new ClientRepository(session);
-
         var actualClient = clientRepository.findAll();
+        session.clear();
 
         assertNotNull(actualClient);
         assertThat(actualClient).hasSize(3);
@@ -75,8 +69,6 @@ class ClientRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithAllParams() {
-        var clientRepository = new ClientRepository(session);
-
         var clientFilter = ClientFilter.builder()
                 .passportNo("123I456")
                 .driverLicenceNo("I123456")
@@ -84,6 +76,7 @@ class ClientRepositoryIT extends TestBase {
                 .creditAmount(BigDecimal.valueOf(120.45))
                 .clientRating(5)
                 .build();
+
         var clients = clientRepository.findByFilter(clientFilter);
 
         assertThat(clients).hasSize(1);
@@ -92,11 +85,10 @@ class ClientRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithOneParams() {
-        var clientRepository = new ClientRepository(session);
-
         var clientFilter = ClientFilter.builder()
                 .clientRating(5)
                 .build();
+
         var clients = clientRepository.findByFilter(clientFilter);
 
         assertThat(clients).hasSize(2);
@@ -106,15 +98,11 @@ class ClientRepositoryIT extends TestBase {
 
     @Test
     void findByFilterWithNoParams() {
-        var clientRepository = new ClientRepository(session);
-
         var clientFilter = ClientFilter.builder()
                 .build();
+
         var clients = clientRepository.findByFilter(clientFilter);
 
         assertThat(clients).hasSize(clientRepository.findAll().size());
-
     }
-
-
 }
