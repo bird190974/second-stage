@@ -4,14 +4,19 @@ import com.bird.dto.OrderFilter;
 import com.bird.entity.OrderStatus;
 import com.bird.integration.TestBase;
 import com.bird.testUtils.TestUtil;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+
+import javax.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@RequiredArgsConstructor
 class OrderRepositoryIT extends TestBase {
 
-    private final OrderRepository orderRepository = context.getBean(OrderRepository.class);
+    private final OrderRepository orderRepository;
+    private final EntityManager entityManager;
 
     @Test
     void save() {
@@ -27,7 +32,8 @@ class OrderRepositoryIT extends TestBase {
         var expectedOrder = orderRepository.findById(1L).get();
         expectedOrder.setStatus(OrderStatus.DENIED);
         orderRepository.update(expectedOrder);
-        session.clear();
+        entityManager
+                .clear();
 
         var actualOrder = orderRepository.findById(1L);
 
@@ -41,7 +47,8 @@ class OrderRepositoryIT extends TestBase {
 
         orderRepository.save(order);
         orderRepository.delete(order);
-        session.clear();
+        entityManager
+                .clear();
 
         var maybeOrder = orderRepository.findById(order.getId());
         assertThat(maybeOrder).isEmpty();
@@ -50,7 +57,8 @@ class OrderRepositoryIT extends TestBase {
     @Test
     void findById() {
         var actualOrder = orderRepository.findById(1L);
-        session.clear();
+        entityManager
+                .clear();
 
         assertThat(actualOrder).isPresent();
         assertThat(actualOrder.get().getStatus()).isEqualTo(OrderStatus.ACCEPTED);
@@ -59,7 +67,7 @@ class OrderRepositoryIT extends TestBase {
     @Test
     void findAll() {
         var actualOrder = orderRepository.findAll();
-        session.clear();
+        entityManager.clear();
 
         assertNotNull(actualOrder);
         assertThat(actualOrder).hasSize(3);

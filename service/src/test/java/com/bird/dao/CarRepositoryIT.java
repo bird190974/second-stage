@@ -5,14 +5,19 @@ import com.bird.entity.Engine;
 import com.bird.entity.Gearbox;
 import com.bird.integration.TestBase;
 import com.bird.testUtils.TestUtil;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+
+import javax.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@RequiredArgsConstructor
 class CarRepositoryIT extends TestBase {
 
-    private final CarRepository carRepository = context.getBean(CarRepository.class);
+    private final CarRepository carRepository;
+    private final EntityManager entityManager;
 
     @Test
     void save() {
@@ -28,7 +33,7 @@ class CarRepositoryIT extends TestBase {
         var expectedCar = carRepository.findById(1).get();
         expectedCar.setModel("Audi Q7");
         carRepository.update(expectedCar);
-        session.clear();
+        entityManager.clear();
 
         var maybeCar = carRepository.findById(1);
 
@@ -42,7 +47,7 @@ class CarRepositoryIT extends TestBase {
 
         carRepository.save(car);
         carRepository.delete(car);
-        session.clear();
+        entityManager.clear();
 
         var maybeCar = carRepository.findById(car.getId());
 
@@ -52,7 +57,7 @@ class CarRepositoryIT extends TestBase {
     @Test
     void findById() {
         var actualCar = carRepository.findById(1);
-        session.clear();
+        entityManager.clear();
 
         assertThat(actualCar).isPresent();
         assertThat(actualCar.get().getModel()).isEqualTo("Audi Q3");
@@ -61,7 +66,7 @@ class CarRepositoryIT extends TestBase {
     @Test
     void findAll() {
         var actualCars = carRepository.findAll();
-        session.clear();
+        entityManager.clear();
 
         assertNotNull(actualCars);
         assertThat(actualCars).hasSize(3);

@@ -3,17 +3,21 @@ package com.bird.dao;
 import com.bird.dto.ClientFilter;
 import com.bird.integration.TestBase;
 import com.bird.testUtils.TestUtil;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@RequiredArgsConstructor
 class ClientRepositoryIT extends TestBase {
 
-    private final ClientRepository clientRepository = context.getBean(ClientRepository.class);
+    private final ClientRepository clientRepository;
+    private final EntityManager entityManager;
 
     @Test
     void save() {
@@ -29,7 +33,7 @@ class ClientRepositoryIT extends TestBase {
         var expectedClient = clientRepository.findById(1).get();
         expectedClient.setClientRating(0);
         clientRepository.update(expectedClient);
-        session.clear();
+        entityManager.clear();
 
         var maybeClient = clientRepository.findById(1);
 
@@ -42,7 +46,7 @@ class ClientRepositoryIT extends TestBase {
         var client = TestUtil.getClient(TestUtil.getUser());
         clientRepository.save(client);
         clientRepository.delete(client);
-        session.clear();
+        entityManager.clear();
 
         var maybeClient = clientRepository.findById(client.getId());
 
@@ -61,7 +65,7 @@ class ClientRepositoryIT extends TestBase {
     @Test
     void findAll() {
         var actualClient = clientRepository.findAll();
-        session.clear();
+        entityManager.clear();
 
         assertNotNull(actualClient);
         assertThat(actualClient).hasSize(3);

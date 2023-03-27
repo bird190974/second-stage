@@ -4,14 +4,19 @@ import com.bird.dto.UserFilter;
 import com.bird.entity.Role;
 import com.bird.integration.TestBase;
 import com.bird.testUtils.TestUtil;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+
+import javax.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@RequiredArgsConstructor
 class UserRepositoryIT extends TestBase {
 
-    private final UserRepository userRepository = context.getBean(UserRepository.class);
+    private final UserRepository userRepository;
+    private final EntityManager entityManager;
 
     @Test
     void save() {
@@ -27,7 +32,7 @@ class UserRepositoryIT extends TestBase {
         var expectedUser = userRepository.findById(1).get();
         expectedUser.setRole(Role.ADMIN);
         userRepository.update(expectedUser);
-        session.clear();
+        entityManager.clear();
 
         var actualUser = userRepository.findById(1);
 
@@ -41,16 +46,17 @@ class UserRepositoryIT extends TestBase {
 
         userRepository.save(user);
         userRepository.delete(user);
-        session.clear();
+        entityManager.clear();
 
         var maybeUser = userRepository.findById(user.getId());
 
         assertThat(maybeUser).isEmpty();
     }
+
     @Test
     void findById() {
         var actualUser = userRepository.findById(1);
-        session.clear();
+        entityManager.clear();
 
         assertThat(actualUser).isPresent();
         assertThat(actualUser.get().getFirstName()).isEqualTo("Ivan");
@@ -59,7 +65,7 @@ class UserRepositoryIT extends TestBase {
     @Test
     void findAll() {
         var actualUser = userRepository.findAll();
-        session.clear();
+        entityManager.clear();
 
         assertNotNull(actualUser);
         assertThat(actualUser).hasSize(3);
