@@ -10,7 +10,8 @@ VALUES (1, 'Ivan', 'Ivanov', 'ivan@gmail.com', '1111', 'USER'),
        (3, 'Sveta', 'Svetikova', 'sveta@gmail.com', '3333', 'USER');
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
 
-INSERT INTO client (id, user_id, passport_no, driver_licence_no, driver_licence_expiration, credit_amount, client_rating)
+INSERT INTO client (id, user_id, passport_no, driver_licence_no, driver_licence_expiration, credit_amount,
+                    client_rating)
 VALUES (1, 1, '123I456', 'I123456', '2023-12-31', 120.45, 5),
        (2, 2, '123P456', 'P123456', '2023-6-30', 255.55, 5),
        (3, 3, '123S456', 'S123456', '2023-1-10', 111.11, 1);
@@ -19,5 +20,5 @@ SELECT setval('client_id_seq', (SELECT MAX(id) FROM client));
 INSERT INTO orders (id, user_id, car_id, begin_time, end_time, status, message)
 VALUES (1, 1, 3, '2023-03-27 10:00:00.000000', '2023-04-07 10:00:00.000000', 'ACCEPTED', 'Nice to see you'),
        (2, 2, 2, '2023-03-27 10:00:00.000000', '2023-04-02 10:00:00.000000', 'IN_PROGRESS', 'Please wait'),
-       (3, 3, 3, '2023-03-27 10:00:00.000000', '2023-04-17 10:00:00.000000','DENIED', 'Sorry');
+       (3, 3, 3, '2023-03-27 10:00:00.000000', '2023-04-17 10:00:00.000000', 'DENIED', 'Sorry');
 SELECT setval('orders_id_seq', (SELECT MAX(id) FROM orders));

@@ -41,7 +41,7 @@ public class User implements BaseEntity<Integer> {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Client client;
     @Builder.Default
     @Fetch(FetchMode.SUBSELECT)

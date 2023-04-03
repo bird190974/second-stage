@@ -28,3 +28,7 @@ java -jar target/service-1.0-SNAPSHOT.jar
 1. Сделать из своего приложения - Spring Boot приложение
 2. Настроить интеграционные тесты
 3. Добавить JPA Starter и почистить ненужные зависимости в проекте
+
+# 09-homework-spring-boot 02.04.2023
+1. Переписать DAO на Spring Repository.
+2. Добавить Liquibase

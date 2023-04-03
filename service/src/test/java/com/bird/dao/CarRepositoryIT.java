@@ -32,7 +32,7 @@ class CarRepositoryIT extends TestBase {
     void update() {
         var expectedCar = carRepository.findById(1).get();
         expectedCar.setModel("Audi Q7");
-        carRepository.update(expectedCar);
+        carRepository.saveAndFlush(expectedCar);
         entityManager.clear();
 
         var maybeCar = carRepository.findById(1);
@@ -44,9 +44,10 @@ class CarRepositoryIT extends TestBase {
     @Test
     void delete() {
         var car = TestUtil.getCar();
-
         carRepository.save(car);
-        carRepository.delete(car);
+
+        carRepository.deleteById(car.getId());
+        entityManager.flush();
         entityManager.clear();
 
         var maybeCar = carRepository.findById(car.getId());

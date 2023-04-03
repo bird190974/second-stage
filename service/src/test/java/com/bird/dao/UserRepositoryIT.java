@@ -31,7 +31,7 @@ class UserRepositoryIT extends TestBase {
     void update() {
         var expectedUser = userRepository.findById(1).get();
         expectedUser.setRole(Role.ADMIN);
-        userRepository.update(expectedUser);
+        userRepository.saveAndFlush(expectedUser);
         entityManager.clear();
 
         var actualUser = userRepository.findById(1);
@@ -43,9 +43,10 @@ class UserRepositoryIT extends TestBase {
     @Test
     void delete() {
         var user = TestUtil.getUser();
-
         userRepository.save(user);
-        userRepository.delete(user);
+
+        userRepository.deleteById(user.getId());
+        entityManager.flush();
         entityManager.clear();
 
         var maybeUser = userRepository.findById(user.getId());

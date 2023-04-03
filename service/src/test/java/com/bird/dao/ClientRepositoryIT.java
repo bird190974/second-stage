@@ -32,7 +32,7 @@ class ClientRepositoryIT extends TestBase {
     void update() {
         var expectedClient = clientRepository.findById(1).get();
         expectedClient.setClientRating(0);
-        clientRepository.update(expectedClient);
+        clientRepository.saveAndFlush(expectedClient);
         entityManager.clear();
 
         var maybeClient = clientRepository.findById(1);
@@ -45,7 +45,8 @@ class ClientRepositoryIT extends TestBase {
     void delete() {
         var client = TestUtil.getClient(TestUtil.getUser());
         clientRepository.save(client);
-        clientRepository.delete(client);
+        clientRepository.deleteById(client.getId());
+        entityManager.flush();
         entityManager.clear();
 
         var maybeClient = clientRepository.findById(client.getId());

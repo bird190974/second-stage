@@ -31,7 +31,7 @@ class OrderRepositoryIT extends TestBase {
     void update() {
         var expectedOrder = orderRepository.findById(1L).get();
         expectedOrder.setStatus(OrderStatus.DENIED);
-        orderRepository.update(expectedOrder);
+        orderRepository.saveAndFlush(expectedOrder);
         entityManager.clear();
 
         var actualOrder = orderRepository.findById(1L);
@@ -45,7 +45,8 @@ class OrderRepositoryIT extends TestBase {
         var order = TestUtil.getOrder(TestUtil.getUser(), TestUtil.getCar());
 
         orderRepository.save(order);
-        orderRepository.delete(order);
+        orderRepository.deleteById(order.getId());
+        entityManager.flush();
         entityManager.clear();
 
         var maybeOrder = orderRepository.findById(order.getId());
