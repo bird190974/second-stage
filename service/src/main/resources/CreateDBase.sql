@@ -10,15 +10,15 @@
 -- image картинка авто на хостинге, облаке
 CREATE TABLE car
 (
-    id SERIAL PRIMARY KEY,
-    reg_sign VARCHAR(16)UNIQUE NOT NULL ,
-    model VARCHAR(128) NOT NULL ,
-    engine_category VARCHAR(32) NOT NULL ,
-    gearbox VARCHAR(32) NOT NULL ,
-    color VARCHAR(32),
-    seats_quantity INT NOT NULL ,
-    cost_per_day NUMERIC(8, 2) NOT NULL ,
-    image VARCHAR(256)
+    id              SERIAL PRIMARY KEY,
+    reg_sign        VARCHAR(16) UNIQUE NOT NULL,
+    model           VARCHAR(128)       NOT NULL,
+    engine_category VARCHAR(32)        NOT NULL,
+    gearbox         VARCHAR(32)        NOT NULL,
+    color           VARCHAR(32),
+    seats_quantity  INT                NOT NULL,
+    cost_per_day    NUMERIC(8, 2)      NOT NULL,
+    image           VARCHAR(256)
 );
 -- DROP TABLE car;
 
@@ -37,15 +37,14 @@ CREATE TABLE car
 -- DROP TABLE car_category;
 
 
-
 CREATE TABLE users
 (
-    id SERIAL PRIMARY KEY ,
-    first_name VARCHAR(32) NOT NULL ,
-    last_name VARCHAR(32) NOT NULL ,
-    email VARCHAR(128) UNIQUE NOT NULL ,
-    password VARCHAR(32) NOT NULL ,
-    role VARCHAR(16) NOT NULL
+    id         SERIAL PRIMARY KEY,
+    first_name VARCHAR(32)         NOT NULL,
+    last_name  VARCHAR(32)         NOT NULL,
+    email      VARCHAR(128) UNIQUE NOT NULL,
+    password   VARCHAR(32)         NOT NULL,
+    role       VARCHAR(16)         NOT NULL
 );
 -- DROP TABLE users;
 
@@ -53,26 +52,26 @@ CREATE TABLE users
 -- может служить основанием для отказа или для начисления бонусов
 CREATE TABLE client
 (
-    id SERIAL PRIMARY KEY ,
-    user_id INT REFERENCES users(id) ON DELETE CASCADE ,
-    passport_no VARCHAR(128) UNIQUE ,
-    driver_licence_no VARCHAR(128) UNIQUE ,
-    driver_licence_expiration DATE NOT NULL ,
-    credit_amount NUMERIC(8, 2) NOT NULL ,
-    client_rating INT
+    id                        SERIAL PRIMARY KEY,
+    user_id                   INT REFERENCES users (id) ON DELETE CASCADE,
+    passport_no               VARCHAR(128) UNIQUE,
+    driver_licence_no         VARCHAR(128) UNIQUE,
+    driver_licence_expiration DATE          NOT NULL,
+    credit_amount             NUMERIC(8, 2) NOT NULL,
+    client_rating             INT
 );
 
 -- DROP TABLE client;
 
 CREATE TABLE orders
 (
-    id BIGSERIAL PRIMARY KEY ,
-    user_id INT REFERENCES users(id),
-    car_id INT REFERENCES car(id),
-    begin_time TIMESTAMP NOT NULL ,
-    end_time TIMESTAMP NOT NULL ,
-    status VARCHAR(16) NOT NULL ,
-    message VARCHAR(128)
+    id         BIGSERIAL PRIMARY KEY,
+    user_id    INT REFERENCES users (id),
+    car_id     INT REFERENCES car (id),
+    begin_time TIMESTAMP   NOT NULL,
+    end_time   TIMESTAMP   NOT NULL,
+    status     VARCHAR(16) NOT NULL,
+    message    VARCHAR(128)
 );
 
 -- DROP TABLE orders;

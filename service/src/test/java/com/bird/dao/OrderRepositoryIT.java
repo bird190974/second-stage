@@ -32,8 +32,7 @@ class OrderRepositoryIT extends TestBase {
         var expectedOrder = orderRepository.findById(1L).get();
         expectedOrder.setStatus(OrderStatus.DENIED);
         orderRepository.update(expectedOrder);
-        entityManager
-                .clear();
+        entityManager.clear();
 
         var actualOrder = orderRepository.findById(1L);
 
@@ -47,8 +46,7 @@ class OrderRepositoryIT extends TestBase {
 
         orderRepository.save(order);
         orderRepository.delete(order);
-        entityManager
-                .clear();
+        entityManager.clear();
 
         var maybeOrder = orderRepository.findById(order.getId());
         assertThat(maybeOrder).isEmpty();
@@ -57,8 +55,7 @@ class OrderRepositoryIT extends TestBase {
     @Test
     void findById() {
         var actualOrder = orderRepository.findById(1L);
-        entityManager
-                .clear();
+        entityManager.clear();
 
         assertThat(actualOrder).isPresent();
         assertThat(actualOrder.get().getStatus()).isEqualTo(OrderStatus.ACCEPTED);
