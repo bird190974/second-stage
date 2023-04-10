@@ -1,4 +1,4 @@
-package com.bird.dao;
+package com.bird.repository;
 
 import com.bird.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;

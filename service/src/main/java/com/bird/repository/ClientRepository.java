@@ -1,4 +1,4 @@
-package com.bird.dao;
+package com.bird.repository;
 
 import com.bird.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;

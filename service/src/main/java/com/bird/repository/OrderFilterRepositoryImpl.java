@@ -1,4 +1,4 @@
-package com.bird.dao;
+package com.bird.repository;
 
 import com.bird.dto.OrderFilter;
 import com.bird.entity.Order;

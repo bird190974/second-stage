@@ -1,8 +1,6 @@
 
 U
 %.mvn/wrapper/maven-wrapper.properties,3\2\32e074f71d16c1e88ac02aa83592ca6ad1fd98a8
-4
-mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
 d
 4common/src/test/java/com/bird/integration/AppIT.java,a\2\a27565cc3c329f0f218a48a763996fda0c5184da
 Z
@@ -14,25 +12,23 @@ V
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-l
-<service/src/test/java/com/bird/testUtils/TestDataCreate.java,3\a\3a2cb01bb5e777c92ddfb8e73281f251d8606263
 ^
 .service/src/main/java/com/bird/entity/Car.java,7\6\766a8cbe8a8de6763794f2a8b5bd4f6f10c1b960
 e
 5service/src/main/java/com/bird/entity/BaseEntity.java,c\e\cef8d0ca70a6ff21f1a23dae82cc9f72154392e7
-f
-6service/src/main/java/com/bird/dao/BaseRepository.java,b\5\b5087af5ef0074536cb8b0bc80ac970fc96d7fd3
+c
+3service/src/main/java/com/bird/dto/OrderFilter.java,5\3\536dbacf3ef44e6eea4bca813756328c6d71b0a1
+a
+1service/src/main/java/com/bird/dto/CarFilter.java,2\c\2c97c5a3425e84848db21ede6c3a36d714501049
+b
+2service/src/main/java/com/bird/dto/UserFilter.java,8\1\81df43d19d9bb056b062639b422c716a01196886
 f
 6service/src/test/java/com/bird/testUtils/TestUtil.java,b\d\bde075822a925b67ad745cff1c908a8fd5524e15
-h
-8service/src/test/java/com/bird/dao/UserRepositoryIT.java,b\a\baca625f98db7c919f4488362be00deaef7094fb
+l
+<service/src/test/java/com/bird/testUtils/TestDataCreate.java,3\a\3a2cb01bb5e777c92ddfb8e73281f251d8606263
+_
+/service/src/main/java/com/bird/entity/User.java,4\5\45eb180e80a333bfbfa9663f894041d8b23bc3e2
 a
-1service/src/test/java/com/bird/annotation/IT.java,7\a\7a69e23cc2e7b40bcc3cddf837ac724baad7b6eb
-h
-8service/src/main/java/com/bird/dao/ClientRepository.java,e\8\e844cbdc17bcf47acd462be13a0bf9430b931bd3
-b
-2service/src/main/java/com/bird/dao/Repository.java,1\7\1790b945c2d14ea1c006b52330d12d9076cad4db
-b
-2service/src/main/java/com/bird/dao/QPredicate.java,3\3\33875079f316b1165747dc35237d08c87454bb79
-f
-6service/src/main/java/com/bird/dao/UserRepository.java,c\8\c817b7e4d47a9f9736afc8fbf4a13587467eb2f0
+1service/src/main/java/com/bird/entity/Client.java,9\f\9f1c91268285ccdb42c5e25f8357ea7594c11863
+4
+mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d

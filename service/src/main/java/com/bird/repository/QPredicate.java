@@ -1,4 +1,4 @@
-package com.bird.dao;
+package com.bird.repository;
 
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;

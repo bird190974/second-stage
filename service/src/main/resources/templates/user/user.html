@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<form th:action="@{/users/{userId}/update(userId=${user.id})}" method="post" th:object="${user}">
+    <label for="firstname">Firstname:
+        <input id="firstname" type="text" name="firstname" th:value="*{firstName}">
+    </label><br>
+    <label for="lastname">Lastname:
+        <input id="lastname" type="text" name="lastname" th:value="*{lastName}">
+    </label><br>
+    <label for="e-mail">E-mail:
+        <input id="e-mail" type="text" name="e-mail" th:value="*{email}">
+    </label><br>
+    <div th:each="role : ${roles}">
+        <input th:id="${role}" type="radio" name="role" th:value="${role}" th:checked="${role == user.role}">
+        <label th:for="${role}" th:text="${#strings.toLowerCase(role)}">Role name</label>
+    </div>
+    <label for="passportNo">passportNo:
+        <input id="passportNo" type="text" name="passportNo" th:value="${client.passportNo()}">
+    </label><br>
+    <label for="driverLicenceNo">driverLicenceNo:
+        <input id="driverLicenceNo" type="text" name="driverLicenceNo" th:value="${client.driverLicenceNo()}">
+    </label><br>
+    <label for="driverLicenceNo">driverLicenceExpiration:
+        <input id="driverLicenceExpiration" type="date" name="driverLicenceExpiration" th:value="${client.driverLicenceExpiration()}">
+    </label><br>
+
+    <label for="creditAmount">creditAmount:
+        <input id="creditAmount" type="text" name="creditAmount" th:value="${client.creditAmount()}">
+    </label><br>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

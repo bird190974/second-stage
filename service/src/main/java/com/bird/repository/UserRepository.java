@@ -1,4 +1,4 @@
-package com.bird.dao;
+package com.bird.repository;
 
 import com.bird.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
