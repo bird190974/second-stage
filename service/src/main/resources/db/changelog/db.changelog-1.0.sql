@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS client
 CREATE TABLE IF NOT EXISTS orders
 (
     id         BIGSERIAL PRIMARY KEY,
-    user_id    INT REFERENCES users (id),
-    car_id     INT REFERENCES car (id),
+    user_id    INT REFERENCES users (id) ON DELETE CASCADE ,
+    car_id     INT REFERENCES car (id) ON DELETE CASCADE ,
     begin_time TIMESTAMP   NOT NULL,
     end_time   TIMESTAMP   NOT NULL,
     status     VARCHAR(16) NOT NULL,

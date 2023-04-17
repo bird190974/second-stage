@@ -36,3 +36,7 @@ java -jar target/service-1.0-SNAPSHOT.jar
 # 10-homework-spring-boot-web 09.04.2023
 1. Написать CRUD операции для одной сущности. Controller -> Service -> Repository
 2. Проверить функционал с помощью тестов
+
+# 11-homework-spring-boot-web 16.04.2023
+1. Добавить REST Controller на одну сущность
+2. Протестировать через Swagger. 

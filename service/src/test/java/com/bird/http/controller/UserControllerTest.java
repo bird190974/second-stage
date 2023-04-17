@@ -25,10 +25,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RequiredArgsConstructor
 class UserControllerTest extends TestBase {
 
-    private final MockMvc mockMvc;
     private static final Integer USER_ID = 1;
     private static final Integer USER_NOT_EXIST_ID = 9999;
-
+    private final MockMvc mockMvc;
 
     @Test
     void findAll() throws Exception {
@@ -49,6 +48,10 @@ class UserControllerTest extends TestBase {
                         view().name("user/user"),
                         model().attributeExists("user")
                 );
+    }
+
+    @Test
+    void findByMissingId() throws Exception {
         mockMvc.perform(get("/users/" + USER_NOT_EXIST_ID.toString()))
                 .andExpect(status().is4xxClientError());
     }
