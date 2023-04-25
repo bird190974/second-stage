@@ -40,3 +40,9 @@ java -jar target/service-1.0-SNAPSHOT.jar
 # 11-homework-spring-boot-web 16.04.2023
 1. Добавить REST Controller на одну сущность
 2. Протестировать через Swagger. 
+
+# 12-homework-spring-boot-web 23.04.2023
+1. Добавить Form Login
+2. Настроить аутентификацию и авторизацию
+3. Пароль должен храниться в базе в зашифрованном виде
+4. OAuth 2 (Optional)

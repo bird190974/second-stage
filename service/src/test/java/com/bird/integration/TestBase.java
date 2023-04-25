@@ -2,6 +2,7 @@ package com.bird.integration;
 
 import com.bird.annotation.IT;
 import org.junit.jupiter.api.BeforeAll;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.jdbc.Sql;
@@ -9,6 +10,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 @IT
 @Sql("classpath:/sql/data.sql")
+@WithMockUser(username = "test@gmail.com", password = "test", authorities = {"ADMIN", "USER"})
 public abstract class TestBase {
 
     private static final PostgreSQLContainer<?> container = new PostgreSQLContainer<>("postgres:14.1");

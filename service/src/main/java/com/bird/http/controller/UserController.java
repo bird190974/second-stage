@@ -1,10 +1,13 @@
 package com.bird.http.controller;
 
+import com.bird.dto.PageResponse;
 import com.bird.dto.UserCreateEditDto;
+import com.bird.dto.UserFilter;
 import com.bird.entity.Role;
 import com.bird.service.ClientService;
 import com.bird.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +27,10 @@ public class UserController {
     private final ClientService clientService;
 
     @GetMapping
-    public String findAll(Model model) {
-        model.addAttribute("users", userService.findAll());
+    public String findAll(Model model, UserFilter filter, Pageable pageable) {
+        var page = userService.findAll(filter, pageable);
+        model.addAttribute("users", PageResponse.of(page));
+        model.addAttribute("filter", filter);
         return "user/users";
     }
 
@@ -42,9 +47,17 @@ public class UserController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/registration")
+    public String registration(Model model, @ModelAttribute("user") UserCreateEditDto user) {
+        model.addAttribute("user", user);
+        model.addAttribute("roles", Role.values());
+        return "user/registration";
+    }
+
     @PostMapping
     public String create(@ModelAttribute UserCreateEditDto user) {
-        return "redirect:/users/" + userService.create(user).getId();
+        userService.create(user);
+        return "redirect:/login";
     }
 
     @PostMapping("/{id}/update")

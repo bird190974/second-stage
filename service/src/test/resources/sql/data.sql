@@ -5,16 +5,18 @@ VALUES (1, '1122 IX-2', 'Audi Q3', 'GAS', 'AUTOMATIC', 'Yellow', 5, 10.44, 'NoIm
 SELECT setval('car_id_seq', (SELECT MAX(id) FROM car));
 
 INSERT INTO users (id, first_name, last_name, email, password, role)
-VALUES (1, 'Ivan', 'Ivanov', 'ivan@gmail.com', '1111', 'USER'),
-       (2, 'Petr', 'Petrov', 'petr@gmail.com', '2222', 'USER'),
-       (3, 'Sveta', 'Svetikova', 'sveta@gmail.com', '3333', 'USER');
+VALUES (1, 'Ivan', 'Ivanov', 'ivan@gmail.com', '{noop}1111', 'USER'),
+       (2, 'Petr', 'Petrov', 'petr@gmail.com', '{noop}2222', 'USER'),
+       (3, 'Sveta', 'Svetikova', 'sveta@gmail.com', '{noop}3333', 'USER'),
+       (4, 'Admin', 'Adminov', 'admin@gmail.com', '{noop}8888', 'ADMIN');
 SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
 
 INSERT INTO client (id, user_id, passport_no, driver_licence_no, driver_licence_expiration, credit_amount,
                     client_rating)
 VALUES (1, 1, '123I456', 'I123456', '2023-12-31', 120.45, 5),
        (2, 2, '123P456', 'P123456', '2023-6-30', 255.55, 5),
-       (3, 3, '123S456', 'S123456', '2023-1-10', 111.11, 1);
+       (3, 3, '123S456', 'S123456', '2023-1-10', 111.11, 1),
+       (4, 4, '123A456', 'A123456', '2025-1-10', 22.21, 10);
 SELECT setval('client_id_seq', (SELECT MAX(id) FROM client));
 
 INSERT INTO orders (id, user_id, car_id, begin_time, end_time, status, message)

@@ -10,9 +10,8 @@ import static com.bird.dto.UserCreateEditDto.Fields.clientId;
 import static com.bird.dto.UserCreateEditDto.Fields.email;
 import static com.bird.dto.UserCreateEditDto.Fields.firstName;
 import static com.bird.dto.UserCreateEditDto.Fields.lastName;
-import static com.bird.dto.UserCreateEditDto.Fields.password;
+import static com.bird.dto.UserCreateEditDto.Fields.rawPassword;
 import static com.bird.dto.UserCreateEditDto.Fields.role;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -35,9 +34,7 @@ class UserControllerTest extends TestBase {
                 .andExpectAll(
                         status().is2xxSuccessful(),
                         view().name("user/users"),
-                        model().attributeExists("users"),
-                        model().attribute("users", hasSize(3))
-                );
+                        model().attributeExists("users"));
     }
 
     @Test
@@ -62,7 +59,7 @@ class UserControllerTest extends TestBase {
                         .param(firstName, "Test")
                         .param(lastName, "Test")
                         .param(email, "test@gmail.com")
-                        .param(password, "322223")
+                        .param(rawPassword, "322223")
                         .param(role, "ADMIN")
                         .param(clientId, USER_NOT_EXIST_ID.toString())
                 )
@@ -78,7 +75,7 @@ class UserControllerTest extends TestBase {
                         .param(firstName, "Ivan")
                         .param(lastName, "Ivanov")
                         .param(email, "ivan@gmail.com")
-                        .param(password, "1111")
+                        .param(rawPassword, "1111")
                         .param(role, "ADMIN")
                         .param(clientId, "1")
                 )

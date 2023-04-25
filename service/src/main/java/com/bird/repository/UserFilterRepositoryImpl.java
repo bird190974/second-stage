@@ -18,8 +18,8 @@ public class UserFilterRepositoryImpl implements UserFilterRepository {
     @Override
     public List<User> findByFilter(UserFilter filter) {
         var predicate = QPredicate.builder()
-                .add(filter.getFirstName(), user.firstName::eq)
-                .add(filter.getLastName(), user.lastName::eq)
+                .add(filter.getFirstName(), user.firstName::containsIgnoreCase)
+                .add(filter.getLastName(), user.lastName::containsIgnoreCase)
                 .add(filter.getEmail(), user.email::eq)
                 .add(filter.getRole(), user.role::eq)
                 .buildAnd();

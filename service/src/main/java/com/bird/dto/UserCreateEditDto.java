@@ -7,11 +7,11 @@ import lombok.experimental.FieldNameConstants;
 @Value
 @FieldNameConstants
 public class UserCreateEditDto {
-
+    // TODO: 25.04.2023 add validation 
     String firstName;
     String lastName;
     String email;
-    String password;
+    String rawPassword;
     Role role;
     Integer clientId;
 }

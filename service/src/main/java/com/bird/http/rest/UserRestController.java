@@ -27,12 +27,12 @@ public class UserRestController {
 
     private final UserService userService;
 
-    @GetMapping(produces = APPLICATION_JSON_VALUE)
+    @GetMapping
     public List<UserReadDto> findAll() {
         return userService.findAll();
     }
 
-    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}")
     public UserReadDto findById(@PathVariable Integer id) {
         return userService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

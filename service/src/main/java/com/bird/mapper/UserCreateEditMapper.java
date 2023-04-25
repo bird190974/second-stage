@@ -5,7 +5,9 @@ import com.bird.entity.Client;
 import com.bird.entity.User;
 import com.bird.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.Optional;
 
@@ -14,6 +16,7 @@ import java.util.Optional;
 public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
 
     private final ClientRepository clientRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User map(UserCreateEditDto object) {
@@ -32,9 +35,13 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User> {
         user.setFirstName(object.getFirstName());
         user.setLastName(object.getLastName());
         user.setEmail(object.getEmail());
-        user.setPassword(object.getPassword());
         user.setRole(object.getRole());
         user.setClient(getClient(object.getClientId()));
+
+        Optional.ofNullable(object.getRawPassword())
+                .filter(StringUtils::hasText)
+                .map(passwordEncoder::encode)
+                .ifPresent(user::setPassword);
     }
 
     private Client getClient(Integer clientId) {

@@ -13,3 +13,20 @@ spring:
   mvc:
     format:
       date: iso
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 916435148856-vlj6m0k6pmmke9lbuh6lfuks0v3p05dp.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: http://localhost:8080/login/oauth2/code/google
+            scope: openid,email,profile
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: 916435148856-vlj6m0k6pmmke9lbuh6lfuks0v3p05dp.apps.googleusercontent.com
+      client-secret: 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
+      scopes: openid,email,profile
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect.html

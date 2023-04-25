@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RequiredArgsConstructor
 class UserServiceTest extends TestBase {
 
+    private static final Integer USER_ID_ONE = 1;
+    private static final Integer USER_ID_NONE = -1;
     private final UserService userService;
-    private final Integer USER_ID_ONE = 1;
-    private final Integer USER_ID_NONE = -1;
 
     @Test
     void findAll() {
@@ -55,7 +55,7 @@ class UserServiceTest extends TestBase {
         assertEquals(userDto.getFirstName(), actualUser.getFirstName());
         assertEquals(userDto.getLastName(), actualUser.getLastName());
         assertEquals(userDto.getEmail(), actualUser.getEmail());
-        assertEquals(userDto.getPassword(), actualUser.getPassword());
+        assertEquals(userDto.getRawPassword(), actualUser.getPassword());
         assertEquals(userDto.getRole(), actualUser.getRole());
         assertThat(userDto.getClientId()).isNull();
     }
@@ -79,7 +79,7 @@ class UserServiceTest extends TestBase {
                     assertEquals(userDto.getFirstName(), user.getFirstName());
                     assertEquals(userDto.getLastName(), user.getLastName());
                     assertEquals(userDto.getEmail(), user.getEmail());
-                    assertEquals(userDto.getPassword(), user.getPassword());
+                    assertEquals(userDto.getRawPassword(), user.getPassword());
                     assertEquals(userDto.getRole(), user.getRole());
                     assertThat(userDto.getClientId()).isNull();
                 }

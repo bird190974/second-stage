@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice(basePackages = "com.bird.http.controller")
 public class ControllerExceptionHandler {
     @ExceptionHandler(Exception.class)
+
     public String handleExceptions(Exception exception, HttpServletRequest request) {
         log.error("Failed to return response", exception);
         return "templates/error/error500";
