@@ -5,24 +5,25 @@
     <title>Login</title>
 </head>
 <body>
-    <form th:action="@{/login}" method="post">
-        <div style="color: red" th:if="${param.error}">
-            Bad credentials!
-        </div>
-        <label for="username">Username:
-            <input id="username" type="text" name="username">
-        </label><br>
-        <label for="username">Password:
-            <input id="password" type="password" name="password">
-        </label><br>
-        <button type="submit">Login</button>
-    </form>
-    <div>
-        <div>Login with:</div>
-        <a href="/oauth2/authorization/google">Google</a>
+<div th:insert="~{fragment :: locale}"></div>
+<form th:action="@{/login}" method="post">
+    <div style="color: red" th:if="${param.error}">
+        Bad credentials!
     </div>
-    <form action="/users/registration">
-        <button type="submit">Registration</button>
-    </form>
+    <label for="username"><span th:text="#{login.username}">Username:</span>
+        <input id="username" type="text" name="username">
+    </label><br>
+    <label for="username"><span th:text="#{login.password}">Password:</span>
+        <input id="password" type="password" name="password">
+    </label><br>
+    <button type="submit" th:text="#{login.login}">Login</button>
+</form>
+<div>
+    <div th:text="#{login.login.with}">Login with:</div>
+    <a href="/oauth2/authorization/google">Google</a>
+</div>
+<form action="/users/registration">
+    <button type="submit" th:text="#{login.registration}">Registration</button>
+</form>
 </body>
 </html>
